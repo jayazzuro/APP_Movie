@@ -6,6 +6,8 @@ import UserManagement from "../pages/UserManagement";
 import PacManagement from "../pages/PacManagement";
 import AddMovie from "../pages/AddMovie";
 import EditMovie from "../pages/EditMovie";
+import UserDetail from "../pages/DetailUser";
+import AddPackge from "../pages/AddPackge";
 import DashboardLayout from "../layouts/DashboardLayout";
 
 function AppRouter() {
@@ -20,6 +22,9 @@ function AppRouter() {
           <Route path="PacManagement" element={<PacManagement />} />
           <Route path="add-movie" element={<AddMovie />} />
           <Route path="edit-movie/:id" element={<EditMovie />} />
+          <Route path="users" element={<UserManagement />} />
+          <Route path="detail-user/:id" element={<UserDetail />} />
+          <Route path="add-package" element={<AddPackge />} />
         </Route>
 
         <Route path="*" element={<Login />} />

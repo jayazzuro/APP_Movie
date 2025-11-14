@@ -1,6 +1,5 @@
 class ApiConstants {
-  static const String baseUrl =
-      'https://simply-clerk-basketball-organization.trycloudflare.com';
+  static const String baseUrl = 'http://:8888';
 
   static const String login = '$baseUrl/api/login';
   static const String registerUser = '$baseUrl/api/registerUser';
