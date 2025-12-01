@@ -29,6 +29,11 @@ router.get("/api/watch-history/:idKH", watch.getWatchHistory);
 router.get("/api/watch-history/:idKH/:idmv", watch.getUserRating);
 
 router.get("/api/packages", homeController.getAllPackages);
+router.get("/success", (req, res) => {
+  res.send(
+    ` <html> <head><title>Thanh toán thành công</title></head> <body style="background:#111;color:#0f0;text-align:center;padding-top:100px;"> <h1>✅ Thanh toán thành công!</h1> <p>Cảm ơn bạn đã đăng ký gói dịch vụ.</p> </body> </html> `
+  );
+});
 
 router.get("/api/check-subscription/:idkh", homeController.checkSubscription);
 

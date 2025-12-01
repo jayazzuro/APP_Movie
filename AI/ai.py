@@ -81,7 +81,7 @@ if need_train:
     cur.execute("""
         SELECT wh."idKH", wh.idmv, 
                COALESCE(
-                   CASE WHEN wh.rating >= 6 THEN 1 ELSE 0 END,
+                   CASE WHEN wh.rating >= 3 THEN 1 ELSE 0 END,
                    CASE WHEN wh.progress > 0.5 THEN 1 ELSE 0 END
                ) as label
         FROM watch_history wh

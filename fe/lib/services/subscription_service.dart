@@ -64,7 +64,7 @@ class SubscriptionService {
       } else {
         //  Gói miễn phí hoặc đăng ký xong
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text(data['message'] ?? "🎉 Thành công!")),
+          SnackBar(content: Text(data['message'] ?? "Thành công!")),
         );
       }
     } catch (e) {

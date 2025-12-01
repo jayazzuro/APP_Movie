@@ -7,6 +7,7 @@ export const API = {
   DELETE_MOVIE: (id) => `${BASE_URL}/api/auth/deleteMovie/${id}`,
   USERS: `${BASE_URL}/api/auth/users`,
   USER_DETAIL: (id) => `${BASE_URL}/api/auth/users/${id}`,
+  USER_STATUS: (id) => `${BASE_URL}/api/auth/users/status/${id}`,
   PACK: `${BASE_URL}/api/auth/pack`,
   UPDATE_PACKAGE: (id) => `${BASE_URL}/api/auth/updatePackage/${id}`,
   DELETE_PACKAGE: (id) => `${BASE_URL}/api/auth/deletePack/${id}`,

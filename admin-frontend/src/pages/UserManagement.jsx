@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { io } from "socket.io-client";
 import { useNavigate } from "react-router-dom";
 import { API, ROUTES } from "../api/config";
 
@@ -13,17 +14,29 @@ function CustomerManagement() {
       navigate("/login");
       return;
     }
+    const fetchUsers = async () => {
+      try {
+        const res = await axios.get(API.USERS);
+        setUsers(res.data.users || []);
+      } catch (err) {
+        console.error(err);
+      }
+    };
     fetchUsers();
-  }, [navigate]);
+    const socket = io("http://localhost:8888");
 
-  const fetchUsers = async () => {
-    try {
-      const res = await axios.get(API.USERS);
-      setUsers(res.data.users || []);
-    } catch (err) {
-      console.error(err);
-    }
-  };
+    socket.on("userStatusUpdated", (updatedUser) => {
+      setUsers((prevUsers) =>
+        prevUsers.map((u) =>
+          u.idKH === updatedUser.idKH ? { ...u, status: updatedUser.status } : u
+        )
+      );
+    });
+
+    return () => {
+      socket.disconnect();
+    };
+  }, [navigate]);
 
   return (
     <div className="container mt-4">
@@ -55,10 +68,10 @@ function CustomerManagement() {
                   <td>{u.gmail}</td>
                   <td>{u.phone}</td>
                   <td>
-                    {u.is_blocked ? (
-                      <span className="badge bg-danger">Đã chặn</span>
+                    {u.status === "active" ? (
+                      <span className="badge bg-success">Hoạt Động</span>
                     ) : (
-                      <span className="badge bg-success">Hoạt động</span>
+                      <span className="badge bg-danger">Không Hoạt động</span>
                     )}
                   </td>
                   <td>

@@ -1,14 +1,21 @@
 const connection = require("../../config/db_movie.js");
 exports.getUser = async (req, res) => {
   try {
-    const result = await connection.query(`select * from "users"`);
-    if (result.rowCount > 0) {
-      return res.status(200).json({
-        success: true,
-        message: "Lấy dữ liệu thành công",
-        users: result.rows,
-      });
-    }
+    const result = await connection.query(
+      `SELECT *, 
+              (last_active IS NOT NULL AND NOW() - last_active < INTERVAL '3 minutes') AS is_active
+       FROM "users"`
+    );
+
+    const users = result.rows.map((u) => ({
+      ...u,
+      status: u.is_active ? "active" : "inactive",
+    }));
+
+    return res.status(200).json({
+      success: true,
+      users,
+    });
   } catch (error) {
     res.status(500).json({ error: error.message });
   }

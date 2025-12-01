@@ -33,7 +33,7 @@ class _MovieDetailScreenState extends State<MovieDetailScreen> {
       final rating = await getUserRating(int.parse(id), widget.movie["idmv"]);
       setState(() {
         _userId = id;
-        _selectedRating = rating ?? 0; // gán số sao đã lưu
+        _selectedRating = rating ?? 0;
       });
     }
   }
@@ -51,7 +51,7 @@ class _MovieDetailScreenState extends State<MovieDetailScreen> {
       _selectedRating = rating;
     });
 
-    // 👇 Gọi API để lưu rating vào watch_history
+    // Gọi API để lưu rating vào watch_history
     bool ok = await saveWatchHistory(
       int.parse(_userId!),
       widget.movie["idmv"],

@@ -1,6 +1,7 @@
 const moment = require("moment");
 const connection = require("../../config/db_movie.js");
 const email = require("../../services/emailService.js");
+const { getIo } = require("../../services/socket.js");
 const crypto = require("crypto");
 
 // Đăng nhập
@@ -15,10 +16,24 @@ exports.postLoginApi = async (req, res) => {
       [gmail, password]
     );
     if (result.rows.length > 0) {
+      const user = result.rows[0];
+
+      await connection.query(
+        `UPDATE "users" SET last_active = NOW() WHERE "idKH" = $1`,
+        [user.idKH]
+      );
+
+      const io = getIo();
+      io.emit("userStatusUpdated", {
+        idKH: user.idKH,
+        name: user.name,
+        status: "active",
+      });
+
       return res.json({
         success: true,
         message: "Đăng nhập thành công",
-        user: result.rows[0],
+        user: user,
       });
     } else {
       return res.json({ success: false, message: "Sai email hoặc mật khẩu" });

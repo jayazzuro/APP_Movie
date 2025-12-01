@@ -4,12 +4,11 @@ import axios from "axios";
 import { API } from "../api/config";
 
 function UserDetail() {
-  const { id } = useParams(); // sửa từ idKH → id
+  const { id } = useParams();
   const [user, setUser] = useState(null);
   const [subs, setSubs] = useState([]);
   const navigate = useNavigate();
 
-  // useCallback để tránh warning ESLint
   const fetchUserDetail = useCallback(async () => {
     try {
       const res = await axios.get(API.USER_DETAIL(id));

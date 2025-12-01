@@ -230,7 +230,7 @@ const callMomoApi = async (amount, orderInfo, idkh, idpk) => {
 
   const ngrokUrl = process.env.NGROK;
 
-  const redirectUrl = `${ngrokUrl}/api/momo/callback`;
+  const redirectUrl = `${ngrokUrl}/success`;
   const ipnUrl = `${ngrokUrl}/api/momo/callback`;
 
   const requestType = "captureWallet";
