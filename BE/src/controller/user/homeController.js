@@ -220,9 +220,8 @@ const createNewPackage = async (idkh, idpk, res) => {
   });
 };
 
-// =========================================================
 //  GỌI API MOMO
-// =========================================================
+
 const callMomoApi = async (amount, orderInfo, idkh, idpk) => {
   const partnerCode = "MOMO";
   const accessKey = "F8BBA842ECF85";
@@ -276,9 +275,8 @@ const callMomoApi = async (amount, orderInfo, idkh, idpk) => {
   return response.data;
 };
 
-// =========================================================
 // CALLBACK MOMO (MoMo sẽ gọi vào đây sau khi thanh toán)
-// =========================================================
+
 const momoCallback = async (req, res) => {
   try {
     console.log("Callback từ MoMo:", req.body);

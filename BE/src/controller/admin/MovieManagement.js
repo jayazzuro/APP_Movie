@@ -59,7 +59,6 @@ exports.addMovie = async (req, res) => {
     const { TenPhim, TheLoai, MoTa, ThoiLuong, Video, Rate } = req.body;
     const default_image = "default_image.jpg";
     const HinhAnh = req.file ? req.file.filename : default_image;
-
     try {
       const result = await connection.query(
         `insert into "movies" ("TenPhim", "TheLoai", "MoTa", "ThoiLuong", "HinhAnh", "Video", "Rate" )

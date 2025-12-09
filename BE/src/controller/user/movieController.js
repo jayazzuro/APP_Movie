@@ -59,11 +59,12 @@ exports.Item_Movie_Cartoon = async (req, res) => {
 
 exports.Item_Movie_Action = async (req, res) => {
   try {
-    const [row] = await connection.query(
-      `select * from "movies" where "TheLoai" = 'Hành Động'`
+    const result = await connection.query(
+      `select * from "movies" where "TheLoai" = $1`,
+      ["Horror"]
     );
-    if (row.length > 0) {
-      res.status(200).json({ success: true, data: row });
+    if (result.rows.length > 0) {
+      res.status(200).json({ success: true, data: result.rows });
     }
   } catch (error) {
     res.status(500).json({ error: error.message });

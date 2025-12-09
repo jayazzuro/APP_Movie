@@ -5,7 +5,7 @@ class SocketService {
 
   void connect(Function(Map<String, dynamic>) onNewComment) {
     _socket = IO.io(
-      "http://192.168.1.198:8888",
+      "http://10.50.1.153:8888",
       IO.OptionBuilder().setTransports(['websocket']).build(),
     );
 

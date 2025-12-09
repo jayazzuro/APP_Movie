@@ -23,7 +23,7 @@ function CustomerManagement() {
       }
     };
     fetchUsers();
-    const socket = io("http://localhost:8888");
+    const socket = io("http://172.31.64.1:8888");
 
     socket.on("userStatusUpdated", (updatedUser) => {
       setUsers((prevUsers) =>
