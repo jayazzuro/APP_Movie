@@ -4,7 +4,6 @@
 **APP_Movie** là một hệ thống xem phim trực tuyến được xây dựng theo mô hình **tách riêng Backend – Frontend – Admin**.  
 Dự án tập trung vào phát triển **Backend với Node.js (Express)**, mô phỏng một hệ thống thực tế với xác thực người dùng, phân quyền, quản lý dữ liệu và tích hợp frontend.
 
-
 ---
 
 ## ✨ Chức năng chính
@@ -33,6 +32,7 @@ Dự án tập trung vào phát triển **Backend với Node.js (Express)**, mô
 - Sẵn sàng cho môi trường cloud
 
 ---
+
 ## 🛠 Công nghệ sử dụng
 
 ### Backend
@@ -55,6 +55,9 @@ Dự án tập trung vào phát triển **Backend với Node.js (Express)**, mô
 - Postman
 - Docker Compose
 - CI/CD cơ bản
+
+---
+
 ## 🚀 Hướng dẫn chạy Backend
 
 ```bash
@@ -67,6 +70,7 @@ cd APP_Movie/backend
 # Cài đặt thư viện
 npm install
 
-# Chạy server
-npm rundev
-
+# Chạy server (chọn 1 trong 2)
+npm start
+# hoặc
+npm run dev
