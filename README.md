@@ -1,46 +1,64 @@
-# 🎬 APP_Movie – Hệ thống xem phim trực tuyến
+# 🎬 APP_Movie – Online Movie Streaming Backend System
 
-## 📌 Giới thiệu
-**APP_Movie** là một hệ thống xem phim trực tuyến được xây dựng theo mô hình **tách riêng Backend – Frontend – Admin**.  
-Dự án tập trung vào phát triển **Backend với Node.js (Express)**, mô phỏng một hệ thống thực tế với xác thực người dùng, phân quyền, quản lý dữ liệu và tích hợp frontend.
+## 📌 Overview
+APP_Movie is an online movie streaming system designed with a **separated Backend – Frontend – Admin architecture**.  
+The project focuses primarily on **backend development**, simulating a real-world system with authentication, data management, real-time features, and payment integration.
 
----
-
-## ✨ Chức năng chính
-
-### 🔐 Xác thực & Phân quyền
-- Đăng ký / đăng nhập người dùng
-- Xác thực bằng **JWT**
-- Phân quyền theo vai trò (**User / Admin**)
-- Bảo vệ API bằng middleware
-
-### 🎥 Quản lý & xem phim
-- Danh sách phim
-- Tìm kiếm phim
-- Xem chi tiết phim
-- Gợi ý phim (**AI-based recommendation**)
-
-### 🛠 Trang quản trị (Admin)
-- Quản lý phim (**CRUD**)
-- Quản lý người dùng
-- Dashboard riêng cho Admin
-- Giao tiếp với Backend thông qua **REST API**
-
-### 🗄 Cơ sở dữ liệu & Triển khai
-- Thiết kế CSDL **PostgreSQL**
-- Sử dụng **Docker** để triển khai backend và database
-- Sẵn sàng cho môi trường cloud
+The backend is built using **Node.js (Express)** and exposes **RESTful APIs** consumed by both web and mobile clients.
 
 ---
 
-## 🛠 Công nghệ sử dụng
+## 🏗 System Architecture
+- **Backend**: Node.js (Express) – RESTful APIs  
+- **Frontend**: Flutter (User), React (Admin Dashboard)  
+- **Database**: PostgreSQL  
+- **Deployment**: Docker & Docker Compose  
+
+---
+
+## ✨ Core Features
+
+### 🔐 Authentication
+- User registration and login
+- JWT-based authentication
+- Protected APIs using authentication middleware
+
+### 🎥 Movie Management & Streaming
+- Movie listing and search
+- Movie detail view
+- AI-based movie recommendation
+
+### 💬 Real-time Interaction
+- Real-time commenting system using **Socket.IO**
+- Live user interactions without page reload
+
+### 💳 Payment Integration
+- Integrated **MoMo payment gateway**
+- Payment flow handling, callbacks, and transaction status updates
+
+### 🛠 Admin Dashboard
+- Movie management (CRUD)
+- User management
+- Separate Admin interface built with **React**
+- Communication with backend via **REST APIs**
+
+---
+
+## 🗄 Database & Deployment
+- Designed PostgreSQL database schemas for users, movies, comments, and payments
+- Containerized backend and database using **Docker**
+- Cloud-ready architecture
+
+---
+
+## 🛠 Technologies Used
 
 ### Backend
 - Node.js (Express.js)
 - RESTful API
 - JWT Authentication
-- Phân quyền người dùng
-- Docker
+- Socket.IO
+- Docker, Docker Compose
 
 ### Frontend
 - Flutter
@@ -50,27 +68,24 @@ Dự án tập trung vào phát triển **Backend với Node.js (Express)**, mô
 ### Database
 - PostgreSQL
 
-### Công cụ khác
+### Tools
 - Git & GitHub
 - Postman
-- Docker Compose
-- CI/CD cơ bản
+- Basic CI/CD concepts
 
 ---
 
-## 🚀 Hướng dẫn chạy Backend
+## 🚀 Run Backend Locally
 
 ```bash
-# Clone project
+# Clone repository
 git clone https://github.com/jayazzuro/APP_Movie.git
 
-# Vào thư mục backend
+# Go to backend directory
 cd APP_Movie/backend
 
-# Cài đặt thư viện
+# Install dependencies
 npm install
 
-# Chạy server (chọn 1 trong 2)
-npm start
-# hoặc
+# Start server
 npm run dev
